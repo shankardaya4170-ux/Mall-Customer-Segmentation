@@ -14,10 +14,18 @@ st.title("📊 Mall Customer Segmentation Dashboard")
 st.markdown("---")
 
 # 2. Data aur Model Load Karna
-data = pd.read_csv('Mall_Customers.csv')
-cluster_data = data.iloc[:, [3, 4]].values # Income aur Spending Score
-model = joblib.load('kmeans_model.pkl')
+import os
 
+# 2. Data aur Model Load Karna
+# Current folder ka exact path dhoondhna
+current_dir = os.path.dirname(os.path.abspath(__file__))
+csv_path = os.path.join(current_dir, 'Mall_Customers.csv')
+model_path = os.path.join(current_dir, 'kmeans_model.pkl')
+
+# Sahi path se file load karna
+data = pd.read_csv(csv_path)
+cluster_data = data.iloc[:, [3, 4]].values # Income aur Spending Score
+model = joblib.load(model_path)
 # 3. Dashboard ke liye 2 Columns banana
 col1, col2 = st.columns(2)
 
