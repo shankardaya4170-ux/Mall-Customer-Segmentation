@@ -14,8 +14,8 @@ st.title("📊 Mall Customer Segmentation Dashboard")
 st.markdown("---")
 
 # 2. Data aur Model Load Karna
-model = joblib.load('PycharmProjects/PythonProject/STREAMLIT/PythonProject4/kmeans_model.pkl') # Aapki original file
-cluster_data = data.iloc[:, [3, 4]].values  # Income aur Spending Score
+data = pd.read_csv('Mall_Customers.csv')
+cluster_data = data.iloc[:, [3, 4]].values # Income aur Spending Score
 model = joblib.load('kmeans_model.pkl')
 
 # 3. Dashboard ke liye 2 Columns banana
